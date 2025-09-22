@@ -4,202 +4,21 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>曼曼导航 · 个人工具页</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background: #fff8f0;
-      margin: 0;
-      padding: 0;
-      color: #333;
-    }
-    header {
-      background: #f2c94c;
-      padding: 1rem;
-      text-align: center;
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: #fff;
-    }
-    nav {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      background: #fff3d6;
-      padding: 0.5rem;
-      gap: 0.5rem;
-    }
-    nav button {
-      background: #fff;
-      border: 1px solid #f2c94c;
-      padding: 0.5rem 1rem;
-      border-radius: 20px;
-      cursor: pointer;
-      font-weight: bold;
-    }
-    nav button.active {
-      background: #f2c94c;
-      color: #fff;
-    }
-    .search-box {
-      text-align: center;
-      margin: 1rem;
-    }
-    .search-box input {
-      width: 80%;
-      padding: 0.5rem;
-      font-size: 1rem;
-      border: 1px solid #ccc;
-      border-radius: 10px;
-    }
-    .category {
-      margin: 2rem;
-    }
-    .category h2 {
-      color: #e67e22;
-      border-bottom: 2px solid #f2c94c;
-      padding-bottom: 0.5rem;
-    }
-    .tools {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-      gap: 1rem;
-      margin-top: 1rem;
-    }
-    .tool {
-      background: #fff;
-      border: 1px solid #f2c94c;
-      border-radius: 10px;
-      padding: 1rem;
-      text-align: center;
-      transition: transform 0.2s;
-    }
-    .tool:hover {
-      transform: scale(1.05);
-    }
-    .tool i {
-      font-size: 2rem;
-      color: #e67e22;
-      margin-bottom: 0.5rem;
-    }
-    .tool a {
-      text-decoration: none;
-      color: #333;
-      font-weight: bold;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header>老王导航 · 个人工具页</header>
-  <nav id="category-nav"></nav>
-  <div class="search-box">
-    <input type="text" id="search-input" placeholder="🔍 搜索工具名称或分类..." />
+  <div class="container">
+    <h1 class="title">曼曼导航 · 工具集合</h1>
+
+    <!-- 分类标签区域 -->
+    <div id="category-tabs" class="tabs"></div>
+
+    <!-- 工具展示区域 -->
+    <div id="tool-grid" class="grid"></div>
   </div>
-  <div id="content"></div>
 
-  <script>
-    const toolsData = {
-      "Ai-stuff": [
-        { name: "ChatGPT", url: "https://chat.openai.com", icon: "fa-brain" },
-        { name: "Huggingface", url: "https://huggingface.co", icon: "fa-robot" }
-      ],
-      "Cloud": [
-        { name: "Cloudflare", url: "https://cloudflare.com", icon: "fa-cloud" },
-        { name: "nezha面板", url: "https://nezha.example.com", icon: "fa-server" }
-      ],
-      "Dev": [
-        { name: "GitHub", url: "https://github.com", icon: "fa-code" },
-        { name: "NodeSeek", url: "https://nodeseek.com", icon: "fa-terminal" }
-      ],
-      "Mail & Domain": [
-        { name: "Gmail", url: "https://mail.google.com", icon: "fa-envelope" },
-        { name: "域名比价", url: "https://example.com", icon: "fa-globe" }
-      ],
-      "Tools": [
-        { name: "IP查询", url: "https://ip.sb", icon: "fa-location-dot" },
-        { name: "Ping0", url: "https://ping0.example.com", icon: "fa-wifi" }
-      ]
-    };
-
-    const nav = document.getElementById('category-nav');
-    const content = document.getElementById('content');
-    const searchInput = document.getElementById('search-input');
-
-    let currentCategory = null;
-
-    function renderNav() {
-      Object.keys(toolsData).forEach(cat => {
-        const btn = document.createElement('button');
-        btn.textContent = cat;
-        btn.onclick = () => {
-          currentCategory = cat;
-          document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
-          btn.classList.add('active');
-          renderCategory(cat);
-        };
-        nav.appendChild(btn);
-      });
-    }
-
-    function renderCategory(cat) {
-      content.innerHTML = '';
-      const section = document.createElement('div');
-      section.className = 'category';
-      section.innerHTML = `<h2>${cat}</h2>`;
-      const grid = document.createElement('div');
-      grid.className = 'tools';
-      toolsData[cat].forEach(tool => {
-        const card = document.createElement('div');
-        card.className = 'tool';
-        card.innerHTML = `
-          <i class="fas ${tool.icon}"></i><br/>
-          <a href="${tool.url}" target="_blank">${tool.name}</a>
-        `;
-        grid.appendChild(card);
-      });
-      section.appendChild(grid);
-      content.appendChild(section);
-    }
-
-    function filterTools(keyword) {
-      content.innerHTML = '';
-      Object.keys(toolsData).forEach(cat => {
-        const matched = toolsData[cat].filter(tool =>
-          tool.name.toLowerCase().includes(keyword.toLowerCase()) ||
-          cat.toLowerCase().includes(keyword.toLowerCase())
-        );
-        if (matched.length > 0) {
-          const section = document.createElement('div');
-          section.className = 'category';
-          section.innerHTML = `<h2>${cat}</h2>`;
-          const grid = document.createElement('div');
-          grid.className = 'tools';
-          matched.forEach(tool => {
-            const card = document.createElement('div');
-            card.className = 'tool';
-            card.innerHTML = `
-              <i class="fas ${tool.icon}"></i><br/>
-              <a href="${tool.url}" target="_blank">${tool.name}</a>
-            `;
-            grid.appendChild(card);
-          });
-          section.appendChild(grid);
-          content.appendChild(section);
-        }
-      });
-    }
-
-    searchInput.addEventListener('input', e => {
-      const keyword = e.target.value;
-      if (keyword.trim() === '') {
-        if (currentCategory) renderCategory(currentCategory);
-        else content.innerHTML = '';
-      } else {
-        filterTools(keyword);
-      }
-    });
-
-    renderNav();
-  </script>
+  <!-- 引入数据与脚本 -->
+  <script src="data.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
