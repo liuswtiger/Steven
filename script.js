@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
       card.title = tool.description || "";
 
       const icon = document.createElement("img");
-      icon.src = tool.icon;
+      icon.src = "public/default-icon.png";
       icon.onerror = () => {
         icon.src = "https://cdn.jsdelivr.net/gh/liuswtiger/Steven/default-icon.png";
       };
