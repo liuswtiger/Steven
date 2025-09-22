@@ -1,18 +1,55 @@
-document.getElementById('search').addEventListener('input', function (e) {
-  const keyword = e.target.value.toLowerCase();
-  const sections = document.querySelectorAll('section');
+// script.js
+document.addEventListener("DOMContentLoaded", () => {
+  const categoryTabs = document.getElementById("category-tabs");
+  const toolGrid = document.getElementById("tool-grid");
 
-  sections.forEach(section => {
-    const links = section.querySelectorAll('li');
-    let matchFound = false;
+  const defaultCategory = "Home";
+  let currentCategory = defaultCategory;
 
-    links.forEach(link => {
-      const text = link.textContent.toLowerCase();
-      const visible = text.includes(keyword);
-      link.style.display = visible ? 'list-item' : 'none';
-      if (visible) matchFound = true;
+  function renderCategories() {
+    categoryTabs.innerHTML = "";
+    Object.keys(toolsData).forEach(category => {
+      const tab = document.createElement("button");
+      tab.textContent = category;
+      tab.className = "tab" + (category === currentCategory ? " active" : "");
+      tab.onclick = () => {
+        currentCategory = category;
+        renderCategories();
+        renderTools();
+      };
+      categoryTabs.appendChild(tab);
     });
+  }
 
-    section.style.display = matchFound ? 'block' : 'none';
-  });
+  function renderTools() {
+    toolGrid.innerHTML = "";
+    const tools = toolsData[currentCategory];
+    tools.sort((a, b) => a.order - b.order);
+    tools.forEach(tool => {
+      const card = document.createElement("div");
+      card.className = "tool-card";
+      card.title = tool.description || "";
+
+      const icon = document.createElement("img");
+      icon.src = tool.icon;
+      icon.onerror = () => {
+        icon.src = "https://cdn.jsdelivr.net/gh/liuswtiger/Steven/default-icon.png";
+      };
+      icon.alt = tool.name;
+      icon.className = "tool-icon";
+
+      const name = document.createElement("div");
+      name.textContent = tool.name;
+      name.className = "tool-name";
+
+      card.appendChild(icon);
+      card.appendChild(name);
+      card.onclick = () => window.open(tool.link, "_blank");
+
+      toolGrid.appendChild(card);
+    });
+  }
+
+  renderCategories();
+  renderTools();
 });
