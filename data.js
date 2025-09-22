@@ -1,4 +1,3 @@
-// data.js
 const toolsData = {
   "Home": [
     {
@@ -9,86 +8,106 @@ const toolsData = {
       order: 1
     },
     {
-      name: "Perplexity",
-      link: "https://www.perplexity.ai/",
-      icon: "https://www.perplexity.ai/favicon.ico",
-      description: "AI 搜索引擎",
+      name: "ChatGPT",
+      link: "https://chat.openai.com/",
+      icon: "https://chat.openai.com/favicon.ico",
+      description: "OpenAI 聊天机器人",
       order: 2
     }
-    // ... 其他 Home 工具
   ],
   "Ai-stuff": [
     {
-      name: "响指 HaiSnap",
-      link: "https://www.haisnap.com/",
-      icon: "https://www.haisnap.com/favicon.ico",
-      description: "零代码 AI 应用平台",
+      name: "Midjourney",
+      link: "https://www.midjourney.com/",
+      icon: "https://www.midjourney.com/favicon.ico",
+      description: "AI 图像生成平台",
       order: 1
     },
     {
-      name: "硅基流动",
-      link: "https://account.siliconflow.cn/zh/login",
-      icon: "https://account.siliconflow.cn/favicon.ico",
-      description: "高性价比 GenAI 云服务",
+      name: "Poe",
+      link: "https://poe.com/",
+      icon: "https://poe.com/favicon.ico",
+      description: "多模型 AI 聊天平台",
       order: 2
-    },
-    {
-      name: "AI一键换脸",
-      link: "https://imgai.ai/zh",
-      icon: "https://imgai.ai/favicon.ico",
-      description: "图像与视频 AI 换脸平台",
-      order: 3
-    },
-    {
-      name: "AI照片修复",
-      link: "https://picwish.cn/photo-enhancer",
-      icon: "https://picwish.cn/favicon.ico",
-      description: "模糊图片变清晰，老照片修复",
-      order: 4
     }
-    // ... 其他 Ai-stuff 工具
   ],
   "Cloud": [
     {
-      name: "阿里云",
-      link: "https://www.aliyun.com/",
-      icon: "https://www.aliyun.com/favicon.ico",
-      description: "中国领先的云计算平台",
+      name: "Vultr",
+      link: "https://www.vultr.com/",
+      icon: "https://www.vultr.com/favicon.ico",
+      description: "云服务器平台",
       order: 1
     },
     {
-      name: "腾讯云",
-      link: "https://cloud.tencent.com/",
-      icon: "https://cloud.tencent.com/favicon.ico",
-      description: "腾讯旗下云服务平台",
+      name: "Cloudflare",
+      link: "https://www.cloudflare.com/",
+      icon: "https://www.cloudflare.com/favicon.ico",
+      description: "CDN 与域名服务",
       order: 2
     }
-    // ... 其他 Cloud 工具
   ],
   "Container": [
     {
-      name: "Vercel",
-      link: "https://vercel.com/",
-      icon: "https://vercel.com/favicon.ico",
-      description: "前端部署平台（Next.js 官方）",
+      name: "Railway",
+      link: "https://railway.app/",
+      icon: "https://railway.app/favicon.ico",
+      description: "云部署平台",
       order: 1
     },
     {
-      name: "Netlify",
-      link: "https://www.netlify.com/",
-      icon: "https://www.netlify.com/favicon.ico",
-      description: "JAMstack 静态网站部署平台",
+      name: "Render",
+      link: "https://render.com/",
+      icon: "https://render.com/favicon.ico",
+      description: "全栈部署平台",
       order: 2
     }
-    // ... 其他 Container 工具
   ],
   "Software": [
     {
       name: "Notion",
       link: "https://www.notion.so/",
       icon: "https://www.notion.so/favicon.ico",
-      description: "多功能笔记与协作平台",
+      description: "笔记与知识管理工具",
       order: 1
+    },
+    {
+      name: "Figma",
+      link: "https://www.figma.com/",
+      icon: "https://www.figma.com/favicon.ico",
+      description: "在线设计协作工具",
+      order: 2
     }
-    // ... 其他 Software 工具
+  ],
+  "Tools": [
+    {
+      name: "Remove.bg",
+      link: "https://www.remove.bg/",
+      icon: "https://www.remove.bg/favicon.ico",
+      description: "一键去除图片背景",
+      order: 1
+    },
+    {
+      name: "TinyPNG",
+      link: "https://tinypng.com/",
+      icon: "https://tinypng.com/favicon.ico",
+      description: "图片压缩工具",
+      order: 2
+    }
+  ],
+  "Mail & Domain": [
+    {
+      name: "Namecheap",
+      link: "https://www.namecheap.com/",
+      icon: "https://www.namecheap.com/favicon.ico",
+      description: "域名注册与邮箱服务",
+      order: 1
+    },
+    {
+      name: "Zoho Mail",
+      link: "https://www.zoho.com/mail/",
+      icon: "https://www.zoho.com/mail/favicon.ico",
+      description: "免费企业邮箱",
+      order: 2
+    }
   ],
