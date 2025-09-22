@@ -1,63 +1,83 @@
 body {
-  font-family: 'Segoe UI', sans-serif;
   margin: 0;
-  padding: 0;
-  background: #f5f5f5;
-  color: #333;
+  font-family: "Segoe UI", sans-serif;
+  background: linear-gradient(to bottom, #0f2027, #203a43, #2c5364);
+  color: #fff;
+  min-height: 100vh;
+  padding: 20px;
 }
 
-header {
-  background: #2c3e50;
-  color: white;
-  padding: 1rem;
+.container {
+  max-width: 1200px;
+  margin: auto;
   text-align: center;
 }
 
-header input {
-  margin-top: 1rem;
-  padding: 0.5rem;
-  width: 60%;
-  max-width: 400px;
+.title {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 30px;
+  gap: 10px;
+}
+
+.tab {
+  background-color: #ffffff22;
   border: none;
-  border-radius: 4px;
+  padding: 10px 20px;
+  border-radius: 20px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: background-color 0.3s;
 }
 
-main {
-  padding: 2rem;
+.tab:hover {
+  background-color: #ffffff44;
 }
 
-section {
-  margin-bottom: 2rem;
+.tab.active {
+  background-color: #00bcd4;
+  color: #000;
 }
 
-section h2 {
-  color: #2c3e50;
-  border-bottom: 1px solid #ccc;
-  padding-bottom: 0.5rem;
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 20px;
+  padding: 0 10px;
 }
 
-ul {
-  list-style: none;
-  padding: 0;
+.tool-card {
+  background-color: #ffffff11;
+  border-radius: 12px;
+  padding: 10px;
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.3s;
 }
 
-li {
-  margin: 0.5rem 0;
+.tool-card:hover {
+  transform: scale(1.05);
+  background-color: #ffffff22;
 }
 
-a {
-  text-decoration: none;
-  color: #3498db;
+.tool-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  margin-bottom: 8px;
+  object-fit: cover;
+  background-color: #fff;
 }
 
-a:hover {
-  text-decoration: underline;
-}
-
-footer {
-  text-align: center;
-  padding: 1rem;
-  background: #ecf0f1;
+.tool-name {
   font-size: 0.9rem;
+  color: #fff;
+  word-break: break-word;
 }
-
