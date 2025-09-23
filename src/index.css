@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 自定义一些基础样式，让深色模式更好看 */
+body {
+  @apply bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-gray-100;
+}
