@@ -3,7 +3,6 @@ import useStore from './store/useStore';
 import { useSearch } from './hooks/useSearch';
 import ToolGrid from './components/ToolGrid';
 import Header from './components/Header';
-import '@fortawesome/fontawesome-free/css/all.min.css';
 
 function App() {
   const { categories, activeCategory, setActiveCategory, searchText } = useStore();
