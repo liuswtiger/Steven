@@ -1,5 +1,0 @@
-name = "tool-navigation"
-compatibility_date = "2023-08-01"
-pages_build_output_dir = "./dist"
-
-[env.production]
