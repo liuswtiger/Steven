@@ -1,13 +1,14 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
   build: {
-    // 强制 Vite 内联所有 CSS 和 JS 文件
     assetsInlineLimit: 4096,
-    cssCodeSplit: false,
+
+    // ✅ 允许 Tailwind CSS 拆分为独立文件，确保样式能被正确加载
+    cssCodeSplit: true,
+
     rollupOptions: {
       output: {
         manualChunks: undefined,
@@ -16,5 +17,8 @@ export default defineConfig({
         assetFileNames: `[name].[ext]`,
       }
     }
-  }
+  },
+
+  // ✅ 设置基础路径，适配 Cloudflare Pages 根目录部署
+  base: './'
 })
